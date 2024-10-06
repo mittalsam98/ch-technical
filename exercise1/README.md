@@ -6,3 +6,6 @@
 # Run project locally
 - Do ```npm i```, then
 - ```npm run dev```
+
+# Deployed URL
+- https://ch-technical.vercel.app/
