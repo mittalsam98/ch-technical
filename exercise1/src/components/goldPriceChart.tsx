@@ -1,18 +1,3 @@
-import React, { useState, useEffect } from 'react';
-import { Line } from 'react-chartjs-2';
-import { DatePickerComp } from './reactDatePicker';
-import {
-  compareAsc,
-  compareDesc,
-  format,
-  formatDistanceToNow,
-  formatRelative,
-  startOfMonth,
-  startOfWeek,
-  startOfYear,
-  subDays,
-  subMonths
-} from 'date-fns';
 import {
   Select,
   SelectContent,
@@ -23,10 +8,23 @@ import {
   SelectValue
 } from '@/components/ui/select';
 import { API_URL, DATE_RANGE_FILTER } from '@/lib/constants';
-import { Chart, LinearScale } from 'chart.js/auto';
-import { CategoryScale } from 'chart.js';
-import MaxReturnModal from './maxReturnModal';
 import { GoldPriceData } from '@/lib/types';
+import { CategoryScale } from 'chart.js';
+import { Chart, LinearScale } from 'chart.js/auto';
+import {
+  compareAsc,
+  compareDesc,
+  format,
+  startOfMonth,
+  startOfWeek,
+  startOfYear,
+  subDays,
+  subMonths
+} from 'date-fns';
+import React, { useEffect, useState } from 'react';
+import { Line } from 'react-chartjs-2';
+import MaxReturnModal from './maxReturnModal';
+import { DatePickerComp } from './reactDatePicker';
 
 Chart.register(LinearScale);
 Chart.register(CategoryScale);
