@@ -1,0 +1,27 @@
+
+Problems in the asynchronous function:
+
+1. The function 'getProfileAsync' is asynchronous, but the function 'getStatus' is written as if it's synchronous. 'getSTatus' should also be asynchronous.
+
+2. In the 'getProfileAsync' function, we returned 'Error: ${e}'. However, 'e' is not defined; it should be 'err'.
+
+3  Since 'getProfileAsync' is a asynchronous function better we should use 'async/await' so that execution of this function will not return anything before the data is fetched
+   
+4. 'profile' var is already available, so inner variable 'profile' will shadow the outer defined 'profile' variable. So either use separate var or assigned the profile to same var if both mean same
+
+Corrected Code:
+
+// return status string or error message 
+async function getStatus(profile) {
+  if (profile?.status) {
+    return profile.status;
+  }
+  
+  try {
+    const fetchedProfile = await getProfileAsync();
+    // I'm assuming returened response have fetchedProfile.status
+    return fetchedProfile?.status;
+  } catch (err) {
+    return `Error: ${e}`;
+  }
+}
